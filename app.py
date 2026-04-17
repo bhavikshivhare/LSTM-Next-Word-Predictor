@@ -18,7 +18,7 @@ max_len = 44
 def generate_text(seed_text,num_words=10):
     text = seed_text
     for _ in range(num_words):
-        seq = tokenizer.textsclea_to_sequences([text])[0]
+        seq = tokenizer.texts_to_sequences([text])[0]
         padded = pad_sequences([seq],maxlen= max_len,padding='pre')
         preds = model.predict(padded,verbose=0)
         pos = np.argmax(preds)
